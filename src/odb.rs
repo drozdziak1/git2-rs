@@ -223,6 +223,8 @@ pub struct OdbReader<'repo> {
     _marker: marker::PhantomData<Object<'repo>>,
 }
 
+unsafe impl<'repo> Send for OdbReader<'repo> {}
+
 impl<'repo> Binding for OdbReader<'repo> {
     type Raw = *mut raw::git_odb_stream;
 
